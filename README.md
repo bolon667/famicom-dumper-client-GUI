@@ -1,5 +1,7 @@
 # GUI for famicom-dumper-client
 
+![Tool logo](https://github.com/bolon667/famicom-dumper-client-GUI/blob/main/images/readmePic1.png)
+
 Simple GUI for famicom-dumper-client
 
 ## How to install
