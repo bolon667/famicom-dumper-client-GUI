@@ -173,6 +173,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     resetCartridge();
                   }),
                 ),
+                ElevatedButton(
+                  child: Text("Dump cartridge"),
+                  onPressed: (() {
+                    dumpCartridge(Directory.current.path);
+                  }),
+                ),
               ],
             ),
           ],
@@ -203,9 +209,43 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
       runInShell: true,
     );
-    _OutputDialog(process.stdout, 'Famicom Dumper Client Output');
+    String info = "";
+    if (process.stdout.length > 0) {
+      info += "Output\n";
+      info += process.stdout + "\n";
+    }
+    if (process.stderr.length > 0) {
+      info += "Error\n";
+      info += process.stderr + "\n";
+    }
+    _OutputDialog(info, 'Famicom Dumper Client Output');
     print(process.stdout);
     print(process.stderr);
+  }
+
+  void dumpCartridge(String filePath) {
+    final String curFolder = path.current.replaceAll(r"\", r"/");
+    final String famicomDumperClientExePath =
+        "$curFolder/famicom_dumper_client/famicom-dumper.exe";
+    var process = Process.runSync(
+      "$famicomDumperClientExePath",
+      [
+        "dump",
+        "--file",
+        filePath,
+      ],
+      runInShell: true,
+    );
+    String info = "";
+    if (process.stdout.length > 0) {
+      info += "Output\n";
+      info += process.stdout + "\n";
+    }
+    if (process.stderr.length > 0) {
+      info += "Error\n";
+      info += process.stderr + "\n";
+    }
+    _OutputDialog(info, 'Famicom Dumper Client Output');
   }
 
   Future<void> _OutputDialog(String outputText, String titleText) async {
@@ -266,6 +306,15 @@ class _MyHomePageState extends State<MyHomePage> {
       runInShell: true,
     );
 
-    _OutputDialog(process.stdout, 'Famicom Dumper Client Output');
+    String info = "";
+    if (process.stdout.length > 0) {
+      info += "Output\n";
+      info += process.stdout + "\n";
+    }
+    if (process.stderr.length > 0) {
+      info += "Error\n";
+      info += process.stderr + "\n";
+    }
+    _OutputDialog(info, 'Famicom Dumper Client Output');
   }
 }
