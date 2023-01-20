@@ -1,16 +1,10 @@
-# gui_for_famicom_dumper_client
+# GUI for famicom-dumper-client
 
-A new Flutter project.
+![Tool logo](https://github.com/bolon667/famicom-dumper-client-GUI/blob/main/images/readmePic1.png)
 
-## Getting Started
+Simple GUI for famicom-dumper-client
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## How to install
+1. Download `gui_for_famicom_dumper_client` from Releases on github
+2. Download famicom-dumper-client from [this link](https://github.com/ClusterM/famicom-dumper-client)
+3. Put program files `famicom-dumper-client` inside `famicom_dumper_client` folder
